@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 # vscode settings
 .vscode/
+
+# cache
+.eslintcache
