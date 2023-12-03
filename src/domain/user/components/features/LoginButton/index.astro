@@ -1,0 +1,7 @@
+---
+import { isLoggedIn } from "@domain/user/modules/isLoggedIn"
+
+const isLoggedInState = await isLoggedIn(Astro.cookies)
+---
+
+{isLoggedInState ? <a href="/logout">Logout</a> : <a href="/login">Login</a>}
