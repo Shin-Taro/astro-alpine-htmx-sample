@@ -1,0 +1,17 @@
+---
+import Layout from "@shared/components/layouts/index.astro"
+import Header from "@domain/user/components/elements/Header/index.astro"
+---
+
+<Layout title="HOME">
+  <Header />
+  <main>
+    <section>
+      <h2>This is Top page</h2>
+      <p>This page always provides the same content regardless of whether you are logged in or not.</p>
+      <ul>
+        {[...Array(20)].map((_, i) => <li>This is a dummy contents. Index is {i}</li>)}
+      </ul>
+    </section>
+  </main>
+</Layout>
