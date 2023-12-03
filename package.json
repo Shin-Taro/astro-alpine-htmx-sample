@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "type-check": "astro check && tsc",
     "lint": "eslint \"./src/**/*.{ts,tsx,astro}\" --max-warnings 0 --cache",
     "fix": "run-s fix-by-prettier fix-by-eslint",
     "fix-by-prettier": "prettier \"./src/**/*.{ts,tsx,astro}\" --write --ignore-path .gitignore",
