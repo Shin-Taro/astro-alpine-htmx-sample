@@ -1,13 +1,19 @@
 ---
 import LoginButton from "@domain/user/components/features/LoginButton/index.astro"
+
+type Props = {
+  isLoggedIn: boolean
+}
+
+const { isLoggedIn } = Astro.props
 ---
 
-<header>
-  <h1>Astro App with alpine.js and htmx</h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><LoginButton /></li>
+<header class="border-b-2 border-gray-900 flex justify-between items-center py-6 px-8">
+  <h1 class="text-3xl"><a href="/">Astro app with Alpine.js and htmx</a></h1>
+  <nav class="text-2xl">
+    <ul class="flex justify-between items-center">
+      <li><a href="/" class="hover:text-gray-500">Home</a></li>
+      <li class="ml-6 hover:text-gray-500"><LoginButton {isLoggedIn} /></li>
     </ul>
   </nav>
 </header>
