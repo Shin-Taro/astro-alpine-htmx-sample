@@ -11,9 +11,9 @@ const { isLoggedIn } = Astro.props
 <header class="border-b-2 border-gray-900 flex justify-between items-center py-6 px-8">
   <h1 class="text-3xl"><a href="/">Astro app with Alpine.js and htmx</a></h1>
   <nav class="text-2xl">
-    <ul class="flex justify-between items-center">
+    <ul class="flex justify-between items-center gap-6">
       <li><a href="/" class="hover:text-gray-500">Home</a></li>
-      <li class="ml-6 hover:text-gray-500"><LoginButton {isLoggedIn} /></li>
+      <li class="hover:text-gray-500"><LoginButton {isLoggedIn} /></li>
     </ul>
   </nav>
 </header>
