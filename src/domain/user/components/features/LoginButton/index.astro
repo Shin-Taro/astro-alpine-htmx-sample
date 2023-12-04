@@ -1,7 +1,9 @@
 ---
-import { isLoggedIn } from "@domain/user/modules/isLoggedIn"
+type Props = {
+  isLoggedIn: boolean
+}
 
-const isLoggedInState = await isLoggedIn(Astro.cookies)
+const { isLoggedIn } = Astro.props
 ---
 
-{isLoggedInState ? <a href="/logout">Logout</a> : <a href="/login">Login</a>}
+{isLoggedIn ? <a href="/logout">Logout</a> : <a href="/login">Login</a>}
