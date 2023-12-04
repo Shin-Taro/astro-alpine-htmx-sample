@@ -10,5 +10,5 @@ export const POST: APIRoute = async ({ request }) => {
   const email = data.get("email")
   const password = data.get("password")
   const isValid = Boolean(email) && Boolean(password)
-  return isValid ? new Response(SuccessDialog, { headers: { Location: "/mypage", "Set-Cookie": "user=dummy-user; Path=/;" } }) : new Response(ErrorDialog)
+  return isValid ? new Response(SuccessDialog, { headers: { "Set-Cookie": "user=dummy-user; Path=/;" } }) : new Response(ErrorDialog)
 }
