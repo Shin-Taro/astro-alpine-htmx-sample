@@ -1,5 +1,10 @@
 ---
+import { fetchNews } from "@domain/news/modules/fetchNews"
+import { isLoggedIn as getIsLoggedIn } from "@domain/user/modules/isLoggedIn"
 import TopTemplate from "@templates/Top/index.astro"
+
+const [isLoggedIn, news] = await Promise.all([getIsLoggedIn(Astro.cookies), fetchNews()])
+const dependencies = { isLoggedIn, news }
 ---
 
-<TopTemplate />
+<TopTemplate {...dependencies} />
