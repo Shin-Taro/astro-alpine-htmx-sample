@@ -1,0 +1,16 @@
+---
+import Document from "@shared/components/layouts/Document/index.astro"
+import Header from "@domain/user/components/elements/Header/index.astro"
+import Container from "@shared/components/layouts/Container/index.astro"
+import TabInterface from "./components/features/TabInterface/index.astro"
+---
+
+<Document title="my page">
+  <Header isLoggedIn={true} />
+  <Container>
+    <section class="mt-16">
+      <h2 class="text-2xl">User information</h2>
+      <div class="mt-10"><TabInterface /></div>
+    </section>
+  </Container>
+</Document>
