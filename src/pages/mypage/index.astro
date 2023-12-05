@@ -3,7 +3,7 @@ import { isLoggedIn } from "@domain/user/modules/isLoggedIn"
 import MyPageTemplate from "@templates/MyPage/index.astro"
 
 if (!(await isLoggedIn(Astro.cookies))) {
-  return Astro.redirect("/mypage")
+  return Astro.redirect("/login")
 }
 ---
 
