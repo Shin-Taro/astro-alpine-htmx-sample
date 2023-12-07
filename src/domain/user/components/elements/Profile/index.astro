@@ -1,0 +1,29 @@
+---
+import { fetchUser } from "@domain/user/modules/fetchUser"
+
+const { id, name, email, address } = await fetchUser()
+
+const trClass = "border-b-2 border-gray-400"
+const cellClass = "py-8"
+---
+
+<div class="text-left text-lg">
+  <table class="w-full">
+    <tr class={trClass}>
+      <th class={cellClass}>Your Name</th>
+      <td>{name}</td>
+    </tr>
+    <tr class={trClass}>
+      <th class={cellClass}>Your ID</th>
+      <td>{id}</td>
+    </tr>
+    <tr class={trClass}>
+      <th class={cellClass}>Your Address</th>
+      <td>{address}</td>
+    </tr>
+    <tr>
+      <th class={cellClass}>Your Email</th>
+      <td>{email}</td>
+    </tr>
+  </table>
+</div>

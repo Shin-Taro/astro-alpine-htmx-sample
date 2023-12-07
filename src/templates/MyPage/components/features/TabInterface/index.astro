@@ -1,0 +1,67 @@
+---
+import Profile from "@domain/user/components/elements/Profile/index.astro"
+import Analytics from "@domain/user/components/elements/Analytics/index.astro"
+import Billing from "@domain/user/components/elements/Billing/index.astro"
+import Settings from "@domain/user/components/elements/Settings/index.astro"
+
+const menu = [
+  {
+    title: "Profile",
+    contents: Profile,
+  },
+  {
+    title: "Analytics",
+    contents: Analytics,
+  },
+  {
+    title: "Billing",
+    contents: Billing,
+  },
+  {
+    title: "Settings",
+    contents: Settings,
+  },
+]
+---
+
+<div x-data="{active:0}" class="w-full">
+  <ul class="flex gap-1 text-xl">
+    {
+      menu.map((item, index) => {
+        const bindClass = `active === ${index} && 'opacity-70'`
+        const bindDisabled = `active === ${index}`
+        const setActive = `active = ${index}`
+        return (
+          <li>
+            <button
+              type="button"
+              x-bind:disabled={bindDisabled}
+              x-on:click={setActive}
+              class="min-w-[135px] py-2 px-6 text-center border-t-2 border-x-2 border-gray-500 rounded-t-lg"
+              x-bind:class={bindClass}
+            >
+              {item.title}
+            </button>
+          </li>
+        )
+      })
+    }
+  </ul>
+  <div class="border-2 border-gray-500 py-16 px-28">
+    {
+      menu.map((item, index) => {
+        const isActive = `active === ${index}`
+        return (
+          <template x-if={isActive}>
+            <section>
+              <h3 class="text-2xl">{item.title}</h3>
+              <div class="mt-10">
+                <item.contents />
+              </div>
+            </section>
+          </template>
+        )
+      })
+    }
+  </div>
+</div>

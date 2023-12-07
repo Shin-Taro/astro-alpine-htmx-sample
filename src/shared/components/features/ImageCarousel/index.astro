@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets"
+import Arrow from "../../elements/Arrow/index.astro"
+
+import type { ImageMetadata } from "astro"
+
+type ImageData = {
+  src: ImageMetadata
+  alt: string
+}
+
+type Props = {
+  images: ImageData[]
+}
+
+const { images } = Astro.props
+---
+
+<div
+  class="w-[80vw] mx-auto overflow-hidden relative [--position:0]"
+  x-ref="root"
+  x-data=`
+  {
+    index: 0,
+    next(){
+      if(this.index < ${images.length - 3}){
+        this.index++;
+        $refs.root.style.setProperty("--position", -(this.index * ($refs.item.offsetWidth+10)).toString() + "px")
+      }
+    },
+    prev(){
+      if(this.index > 0){
+        this.index--;
+        $refs.root.style.setProperty("--position", -(this.index * ($refs.item.offsetWidth+10)).toString() + "px");
+      }
+    }
+  }`
+>
+  <div class="absolute inset-0 flex justify-between items-center">
+    <button type="button" @click="prev()">
+      <Arrow direction="left" />
+    </button>
+    <button type="button" @click="next()">
+      <Arrow direction="right" />
+    </button>
+  </div>
+  <div class="w-[calc(100%-100px)] mx-auto overflow-hidden">
+    <ul class="w-full flex justify-between gap-[10px] translate-x-[var(--position)] transition-transform duration-300 ease-in-out">
+      {
+        images.map((item) => (
+          <li x-ref="item" class="w-[calc((100%-20px)/3)] flex-shrink-0 border-2 border-gray-200 rounded">
+            <Image src={item.src} alt={item.alt} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

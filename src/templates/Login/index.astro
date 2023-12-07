@@ -1,0 +1,21 @@
+---
+import Document from "@shared/components/layouts/Document/index.astro"
+import Container from "@shared/components/layouts/Container/index.astro"
+import LoginForm from "@domain/user/components/features/LoginForm/index.astro"
+---
+
+<Document title="Login">
+  <Container>
+    <section class="mt-16">
+      <h2 class="text-2xl">Login</h2>
+      <p class="text-lg mt-10">This is a dummy login form. You can enter any string to log in.</p>
+      <p class="text-lg mt-10">If you are not already a member, please register on the <a href="/entry" class="text-blue-500">entry page</a>.</p>
+      <div class="mt-10">
+        <LoginForm />
+      </div>
+    </section>
+    <div class="text-center mt-10">
+      <a class="border-b-2 border-gray-500 pb-2 hover:opacity-70" href="/">← back to Home</a>
+    </div>
+  </Container>
+</Document>

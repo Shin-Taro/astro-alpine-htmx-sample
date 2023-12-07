@@ -1,0 +1,10 @@
+---
+import { isLoggedIn } from "@domain/user/modules/isLoggedIn"
+import EntryTemplate from "@templates/Entry/index.astro"
+
+if (await isLoggedIn(Astro.cookies)) {
+  return Astro.redirect("/mypage")
+}
+---
+
+<EntryTemplate />

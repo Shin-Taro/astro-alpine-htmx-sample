@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "type-check": "astro check && tsc",
     "lint": "eslint \"./src/**/*.{ts,tsx,astro}\" --max-warnings 0 --cache",
     "fix": "run-s fix-by-prettier fix-by-eslint",
     "fix-by-prettier": "prettier \"./src/**/*.{ts,tsx,astro}\" --write --ignore-path .gitignore",
@@ -18,6 +19,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.1",
     "@astrojs/check": "^0.3.1",
+    "@astrojs/node": "^6.1.0",
     "@astrojs/tailwind": "^5.0.2",
     "alpinejs": "^3.0.0",
     "astro": "^3.6.4",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.0.0",
+    "@types/node": "^20.10.3",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "eslint": "^8.54.0",
